@@ -294,10 +294,12 @@ class FiniteFieldEllipticCurve(GenericEllipticCurve):
     """
     x = s.field(x)
     y_square = x * x * x + s.a * x + s.b
-    for y in modular_square_root(y_square, s.field.p ** s.field.degree()):
-      if pow(y, 2, s.field.p ** s.field.degree()) == y_square:
-        return y
-    return None
+    y = modular_square_root(y_square, s.field.p ** s.field.degree())
+    return y
+#     for y in modular_square_root(y_square, s.field.p ** s.field.degree()):
+#       if pow(y, 2, s.field.p ** s.field.degree()) == y_square:
+#         return y
+#     return None
 
   def embedding_degree(s, m):
     """
